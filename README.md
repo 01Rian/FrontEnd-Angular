@@ -1,7 +1,52 @@
-# Angular Front End
+# Front-End
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.3.
+The front-end for this project is developed using Angular. It provides a user-friendly interface to interact with the User and Role Management API. The Angular application allows users to perform various actions related to user and role management seamlessly.
 
-## Development server
+### Prerequisites
+- Node.js and npm installed: [Node.js Installation Guide](https://nodejs.org/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Angular CLI installed: Install globally using the following command:
+    ```bash
+    npm install -g @angular/cli
+    ```
+
+### How to Run the Front-End
+
+1. Clone the Front-End Angular project repository:
+    ```bash
+    git clone https://github.com/01Rian/FrontEnd-Angular.git
+    ```
+
+2. Navigate to the project directory:
+    ```bash
+    cd FrontEnd-Angular
+    ```
+
+3. Install dependencies:
+    ```bash
+    npm install
+    ```
+
+4. Run the Angular development server:
+    ```bash
+    ng serve
+    ```
+
+5. Access the front-end application at [http://localhost:4200/](http://localhost:4200/).
+
+## Features
+- **User Management:**
+  - View the list of users.
+  - Create a new user.
+  - Update user information.
+  - Delete a user.
+
+- **Role Management:**
+  - View the list of roles.
+  - Create a new role.
+  - Delete a role.
+
+## Integration with API
+### [Back-End API](https://github.com/01Rian/api-mongo-spring-boot) 
+
+This application consumes a User and Roles API to manage information related to users and their respective roles. The integration with this API enables the front-end to display, create, update, and delete users, as well as assign or remove roles associated with these users.
