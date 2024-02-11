@@ -1,7 +1,7 @@
 import { UserService } from './../../Services/user.service';
 import { Component } from '@angular/core';
-import { User } from '../../models/user';
-import { Role } from '../../models/role';
+import { User } from '../../Models/user';
+import { Role } from '../../Models/role';
 import { RoleService } from '../../Services/role.service';
 
 @Component({
@@ -28,7 +28,7 @@ export class UserComponent {
   }
 
   getAllRoles() {
-    this.roleService.getAll().subscribe((reponse) => {
+    this.roleService.getAll().subscribe((reponse: Role[]) => {
       this.roleList = reponse;
     });
   }

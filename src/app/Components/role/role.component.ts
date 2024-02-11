@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Role } from '../../models/role';
+import { Role } from '../../Models/role';
 import { RoleService } from '../../Services/role.service';
 
 @Component({
