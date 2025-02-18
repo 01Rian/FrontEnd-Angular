@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { User } from '../../Models/user';
 import { Role } from '../../Models/role';
 import { RoleService } from '../../Services/role.service';
+import { NavigationService } from '../../Services/navigation.service';
 
 @Component({
   selector: 'app-user',
@@ -16,7 +17,11 @@ export class UserComponent {
   userToModify: User = new User();
   creatingMode: boolean = true;
 
-  constructor(private userService: UserService, private roleService: RoleService) {
+  constructor(
+    private userService: UserService, 
+    private roleService: RoleService,
+    private navigationService: NavigationService
+  ) {
     this.getAllUsers();
     this.getAllRoles();
   }
@@ -36,7 +41,7 @@ export class UserComponent {
   modifyUser() {
     this.userService.update(this.userToModify).subscribe(() => {
       alert("User Updated Successfully");
-      window.location.reload();
+      this.navigationService.reload();
     });
   }
 
@@ -50,7 +55,7 @@ export class UserComponent {
     };
     this.userService.create(newUser).subscribe(() => {
       alert("User Added Successfully");
-      window.location.reload();
+      this.navigationService.reload();
     });
   }
 
@@ -58,7 +63,7 @@ export class UserComponent {
     if (confirm("Are you sure you want to delete this user !!!")) {
       this.userService.delete(userId).subscribe(() => {
         alert("User Deleted Successfully");
-        window.location.reload();
+        this.navigationService.reload();
       });
     }
   }
