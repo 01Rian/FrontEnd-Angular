@@ -1,48 +1,58 @@
-<button
-  type="button"
-  class="btn btn-success"
-  data-toggle="modal"
-  data-target="#EditAddRole"
-  (click)="openModel()"
-  style="margin: 50px"
->
-  Create New Role
-</button>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name Role</th>
-      <th scope="col" colspan="2">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let role of roleList">
-      <th scope="row">{{ role.id }}</th>
-      <td>{{ role.roleName }}</td>
-      <td>
-        <button
-          type="button"
-          class="btn btn-primary"
-          data-toggle="modal"
-          data-target="#EditAddRole"
-          (click)="openModel(role)"
-        >
-          Edit
-        </button>
-      </td>
-      <td>
-        <button
-          type="button"
-          class="btn btn-danger"
-          (click)="deleteRole(role.id)"
-        >
-          Delete
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h2 class="mb-0">Role Management</h2>
+  <button
+    type="button"
+    class="btn btn-success"
+    data-toggle="modal"
+    data-target="#EditAddRole"
+    (click)="openModel()"
+  >
+    <i class="fas fa-plus-circle me-2"></i>
+    Create New Role
+  </button>
+</div>
+
+<div class="card">
+  <div class="card-body p-0">
+    <table class="table mb-0">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name Role</th>
+          <th scope="col" colspan="2">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let role of roleList">
+          <th scope="row">{{ role.id }}</th>
+          <td>{{ role.roleName }}</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-primary btn-sm"
+              data-toggle="modal"
+              data-target="#EditAddRole"
+              (click)="openModel(role)"
+            >
+              <i class="fas fa-edit me-1"></i>
+              Edit
+            </button>
+          </td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-danger btn-sm"
+              (click)="deleteRole(role.id)"
+            >
+              <i class="fas fa-trash-alt me-1"></i>
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 <!-- Modal -->
 <div

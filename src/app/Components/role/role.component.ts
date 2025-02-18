@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Role } from '../../Models/role';
 import { RoleService } from '../../Services/role.service';
+import { NavigationService } from '../../Services/navigation.service';
 
 @Component({
   selector: 'app-role',
@@ -14,7 +15,10 @@ export class RoleComponent {
 
   creatingMode: boolean = true;
 
-  constructor(private roleService: RoleService) {
+  constructor(
+    private roleService: RoleService,
+    private navigationService: NavigationService
+  ) {
     this.getAllRoles();
   }
 
@@ -28,7 +32,7 @@ export class RoleComponent {
     if (confirm("Are you sure you want to delete this role !!!")) {
       this.roleService.delete(roleId).subscribe(() => {
         alert("Role Deleted Successfully");
-        window.location.reload();
+        this.navigationService.reload();
       });
     }
   }
@@ -39,14 +43,14 @@ export class RoleComponent {
     }
     this.roleService.create(newRole).subscribe(() => {
       alert("Role Created Successfully");
-      window.location.reload();
+      this.navigationService.reload();
     });
   }
 
   modifyRole() {
     this.roleService.update(this.newRole).subscribe(() => {
       alert("Role Updated Successfully");
-      window.location.reload();
+      this.navigationService.reload();
     });
   }
 
